@@ -1,0 +1,8 @@
+file_format: "1"
+id: tolkeeb_zero
+name: Tolkeeb Zero
+type: shield
+url: https://github.com/mrtolkien/tolkeeb
+requires: [pro_micro]
+features:
+  - keys

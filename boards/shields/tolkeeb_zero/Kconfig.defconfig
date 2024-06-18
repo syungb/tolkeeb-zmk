@@ -1,0 +1,6 @@
+if SHIELD_TOLKEEB_ZERO
+
+config ZMK_KEYBOARD_NAME
+    default "Tolkeeb Zero"
+
+endif
