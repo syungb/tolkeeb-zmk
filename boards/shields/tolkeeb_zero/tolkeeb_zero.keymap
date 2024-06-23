@@ -5,6 +5,7 @@
     keymap {
         compatible = "zmk,keymap";
 
+        // TODO -> Proper default keymap!
         default_layer {
             bindings = <
                         &kp Y       &kp O           &kp F        &kp B               &kp K          &kp Q       &kp L     &kp V

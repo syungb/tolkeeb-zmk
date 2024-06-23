@@ -1,0 +1,66 @@
+#include <behaviors.dtsi>
+
+/ {
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <150>;
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <50>;  // TODO Review for pinky
+            bindings = <&kp>, <&kp>;
+        };
+
+        bs_del: backspace_delete {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp DEL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    
+        lt_bs: layer_tap_backspace_delete {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&mo>, <&bs_del>;
+            tapping-term-ms = <120>;
+            quick-tap-ms = <200>;
+        };
+
+        // TODO Unused atm, not playing well w/ interruptions (tap-e -> qeu)
+        // qu_q: tap_dance_0 {
+        //     compatible = "zmk,behavior-tap-dance";
+        //     label = "TAP_DANCE_0";
+        //     #binding-cells = <0>;
+        //     bindings = <&qu>, <&kp Q>;
+        // };
+
+        // UNUSED ATM
+        // pe_co: period_comma {
+        //     compatible = "zmk,behavior-mod-morph";
+        //     label = "PERIOD_COMMA";
+        //     #binding-cells = <0>;
+        //     bindings = <&kp PERIOD>, <&kp COMMA>;
+        //     mods = <(MOD_LSFT|MOD_RSFT)>;
+        // };
+
+        // TODO Unused atm, using dedicated key
+        // sp_bs: sp_bs {
+        //     compatible = "zmk,behavior-mod-morph";
+        //     label = "SPACE_BACKSPACE";
+        //     #binding-cells = <0>;
+        //     bindings = <&kp SPACE>, <&kp BSPC>;
+        //     mods = <(MOD_LSFT|MOD_RSFT)>;
+        // };
+    
+        // lt_sp: layer_tap_space_backspace {
+        //     compatible = "zmk,behavior-hold-tap";
+        //     label = "LAYER_TAP_SPACE_BACKSPACE";
+        //     #binding-cells = <2>;
+        //     bindings = <&mo>, <&kp SPACE>;
+        //     tapping-term-ms = <120>;
+        //     quick-tap-ms = <200>;
+        // };
+
+    };
+};
