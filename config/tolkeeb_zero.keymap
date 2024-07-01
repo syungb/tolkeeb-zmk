@@ -12,7 +12,7 @@
 #define FR_L 5
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
-&lt { quick_tap_ms = <200>; };
+&lt { quick_tap_ms = <180>; };
 
 / {
     keymap {
@@ -21,23 +21,23 @@
         default_layer {
             bindings = <
                     &kp Y      &kp O       &kp F      &kp B          &kp K     &kp Q       &kp L       &kp V
-&kp J   &lt FN_L U &hm LALT I &hm LCTRL A &hm LGUI C &kp G          &kp M     &hm RGUI T  &hm RCTRL N &hm LALT S  &lt FR_L R  &kp Z
-        &kp W       &kp COMMA  &kp PERIOD  &kp        &trans         &trans    &kp D       &kp H       &kp X       &kp SQT
+&kp J   &lt FN_L U  &hm LALT I &hm LCTRL A &hm LGUI C &kp G          &kp M     &hm RGUI T  &hm RCTRL N &hm LALT S  &lt FR_L R  &kp Z
+        &kp W       &kp COMMA  &kp PERIOD  &kp P      &kp J          &kp Z     &kp D       &kp H       &kp X       &kp SQT
 
                                         &sk LSHIFT    &lt NAV_L E    &lt NUM_L SPACE  &lt_bs SYM_L 0
-                                                      &kp STAR       &kp SLASH
+                                                      &e_acute       &lt FR_L TAB
             >;
         };
 
         nav_layer {
             label = "Navigation";
             bindings = <
-                       &kp GRAVE  &kp UP      &kp PAGE_UP     &kp PAGE_DOWN &kp C_VOL_UP    &kp C_MUTE     &trans      &trans
-&trans     &kp HOME   &kp LEFT   &kp DOWN    &kp RIGHT       &kp END       &kp C_VOL_DN    &trans         &trans      &trans     &kp RIGHT_SHIFT &trans
-           &trans     &trans     &kp LG(C)   &kp LG(V)     &trans  &trans   &kp C_STOP      &kp C_PREV     &kp C_NEXT  &kp C_PP
+                    &kp GRAVE   &kp UP     &kp PAGE_UP &kp PAGE_DOWN &kp C_VOL_UP &kp C_MUTE &trans     &trans
+&trans  &kp HOME    &kp LEFT    &kp DOWN   &kp RIGHT   &kp END       &kp C_VOL_DN &trans     &trans     &trans     &kp RIGHT_SHIFT &trans
+        &trans      &trans      &kp LG(C)  &kp LG(V)   &trans        &trans       &kp C_STOP &kp C_PREV &kp C_NEXT &kp C_PP
 
-                                                  &trans          &trans        &trans          &trans
-                                                  &trans &trans
+                                            &trans     &trans        &trans          &trans
+                                                       &trans        &trans
             >;
         };
 
@@ -45,11 +45,11 @@
             label = "Math";
             bindings = <
                            &trans         &trans      &trans          &trans        &kp KP_DIVIDE   &kp N7     &kp N8      &kp N9
-&trans                &trans     &trans         &trans      &trans          &trans        &kp KP_MULTIPLY &kp N4     &kp N5      &kp N6     &kp EQUAL &trans
-                &trans     &trans         &trans      &trans &trans &trans                                        &kp N1     &kp N2      &kp N3     &kp PLUS
+&trans                &trans     &trans         &trans      &trans          &trans        &kp KP_MULTIPLY &kp N4     &kp N5      &kp N6     &kp N0 &kp EQUAL
+                &trans     &trans         &trans      &trans &trans &kp PERCENT                                        &kp N1     &kp N2      &kp N3     &kp PLUS
 
-                                                      &trans          &kp N0        &trans          &trans
-                                                      &trans &trans
+                                            &trans     &trans        &trans          &trans
+                                                       &trans        &trans
             >;
         };
 
@@ -60,8 +60,8 @@
 &trans                &trans     &trans         &trans      &trans          &trans        &kp KP_MULTIPLY &kp EXCL   &kp QMARK   &kp AMPS   &kp PERCENT &trans
                 &trans     &trans         &trans      &trans &trans &trans                                        &kp DOLLAR &kp HASH    &kp AT     &kp PLUS
 
-                                                      &trans          &trans        &trans          &trans
-                                                      &trans &trans
+                                            &trans     &trans        &trans          &trans
+                                                       &trans        &trans
             >;
         };
 
@@ -72,8 +72,8 @@
 &trans                &trans     &trans     &trans      &trans          &trans       &trans          &kp F4         &kp F5      &kp F6     &trans &trans
                 &trans     &trans     &trans      &trans &trans &trans                                       &kp F1         &kp F2      &kp F3     &trans
 
-                                                  &trans          &trans       &trans          &trans
-                                                  &trans &trans
+                                            &trans     &trans        &trans          &trans
+                                                       &trans        &trans
             >;
         };
         
@@ -94,15 +94,22 @@
     combos {
         compatible = "zmk,combos";
 
+        //        0  1  2  3     4  5  6  7  
+        //  8  9  10 11 12 13    14 15 16 17 18 19
+        //     20 21 22 23 24    25 26 27 28 29
+        //              30 31    32 33
+        //                 34    35
+
         // This need to be the 1st entry for the yq command in README to work
         combo_caps_word {
             timeout-ms = <50>;
-            key-positions = <18 25>;
-            bindings = <&kp CAPSLOCK>;
+            key-positions = <20 29>;
+            bindings = <&caps_word>;
             layers = <0>;
         };
 
-        combo_top_left_left {
+        // TODO Review/delete
+        combo_top_left_left {         
             timeout-ms = <50>;
             key-positions = <0 1>;
             bindings = <&kp J>;
@@ -123,6 +130,7 @@
             layers = <0>;
         };
 
+        // TODO Review/delete
         combo_top_right_right {
             timeout-ms = <50>;
             key-positions = <6 7>;
@@ -130,52 +138,45 @@
             layers = <0>;
         };
 
-        combo_bottom_right_left {
-            timeout-ms = <50>;
-            key-positions = <22 23>;
-            bindings = <&kp RET>;
-            layers = <0>;
-        };
-
         // Braces combos
         combo_col_0 {
             timeout-ms = <50>;
-            key-positions = <0 9>;
+            key-positions = <0 10>;
             bindings = <&kp LEFT_BRACKET>;
             layers = <0>;
         };
 
         combo_col_2 {
             timeout-ms = <50>;
-            key-positions = <1 10>;
+            key-positions = <1 11>;
             bindings = <&kp LEFT_PARENTHESIS>;
             layers = <0>;
         };
 
         combo_col_3 {
             timeout-ms = <50>;
-            key-positions = <2 11>;
+            key-positions = <2 12>;
             bindings = <&kp LEFT_BRACE>;
             layers = <0>;
         };
 
         combo_col_4 {
             timeout-ms = <50>;
-            key-positions = <5 14>;
+            key-positions = <5 15>;
             bindings = <&kp RIGHT_BRACE>;
             layers = <0>;
         };
 
         combo_col_5 {
             timeout-ms = <50>;
-            key-positions = <6 15>;
+            key-positions = <6 16>;
             bindings = <&kp RIGHT_PARENTHESIS>;
             layers = <0>;
         };
 
         combo_col_6 {
             timeout-ms = <50>;
-            key-positions = <7 16>;
+            key-positions = <7 17>;
             bindings = <&kp RIGHT_BRACKET>;
             layers = <0>;
         };
@@ -183,30 +184,37 @@
         // Extra exotic combos
         combo_thumbs {
             timeout-ms = <50>;
-            key-positions = <27 29>;
+            key-positions = <31 33>;
             bindings = <&e_acute>;
             layers = <0>;
         };
 
         combo_left_thumb {
             timeout-ms = <50>;
-            key-positions = <26 27>;
+            key-positions = <30 31>;
             bindings = <&kp SLASH>;
             layers = <0>;
         };
 
-        combo_right_thumb {
-            timeout-ms = <50>;
-            key-positions = <28 29>;
-            bindings = <&kp TAB>;
-            layers = <0>;
-        };
+        // combo_right_thumb {
+        //     timeout-ms = <50>;
+        //     key-positions = <32 33>;
+        //     bindings = <&kp TAB>;
+        //     layers = <0>;
+        // };
 
         // Vim-inspired (old J-K)
         combo_exit {
             timeout-ms = <50>;
-            key-positions = <21 20>;
+            key-positions = <22 23>;
             bindings = <&kp ESC>;
+            layers = <0>;
+        };
+
+        combo_bottom_right_left {
+            timeout-ms = <50>;
+            key-positions = <26 27>;
+            bindings = <&kp RET>;
             layers = <0>;
         };
 
