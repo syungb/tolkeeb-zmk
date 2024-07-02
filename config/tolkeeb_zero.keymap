@@ -20,12 +20,12 @@
 
         default_layer {
             bindings = <
-                            &kp Y         &kp O         &kp F         &kp B               &kp K         &kp Q         &kp L         &kp V
-&kp J         &lt FN_L U    &hm LALT I    &hm LCTRL A   &hm LGUI C    &kp G               &kp M         &hm RGUI T    &hm RCTRL N   &hm LALT S    &lt FR_L R    &kp Z
-              &kp W         &kp COMMA     &kp PERIOD    &kp P         &kp J               &kp Z         &kp D         &kp H         &kp X         &kp SQT
+                            &kp Y         &kp O         &kp F         &kp B         &kp K         &kp Q         &kp L         &kp V
+&kp J         &lt FN_L U    &hm LALT I    &hm LCTRL A   &hm LGUI C    &kp G         &kp M         &hm RGUI T    &hm RCTRL N   &hm LALT S    &lt FR_L R    &kp Z
+              &kp W         &kp COMMA     &kp PERIOD    &kp P         &kp J         &kp Z         &kp D         &kp H         &kp X         &kp SQT
 
-                                                        &sk LSHIFT    &lt NAV_L E         &lt NUM_L SPACE    &lt_bs SYM_L 0
-                                                                        &e_acute            &lt FR_L TAB
+                                                        &sk LSHIFT    &lt NAV_L E   &lt NUM_L SPACE    &lt_bs SYM_L 0
+                                                                        &e_acute    &lt FR_L TAB
             >;
         };
 
@@ -45,7 +45,7 @@
             label = "Math";
             bindings = <
                             &trans        &trans        &trans        &trans        &kp KP_DIVIDE &kp N7        &kp N8        &kp N9
-&trans        &trans        &trans        &trans        &trans        &trans        &kp KP_MULTIPLY &kp N4        &kp N5        &kp N6        &kp N0        &kp EQUAL
+&trans        &trans        &trans        &trans        &trans        &trans        &kp KP_MULTIPLY &kp N4      &kp N5        &kp N6        &kp N0        &kp EQUAL
               &trans        &trans        &trans        &trans        &trans        &kp PERCENT   &kp N1        &kp N2        &kp N3        &kp PLUS
 
                                                         &trans        &trans        &trans        &trans
@@ -56,9 +56,9 @@
         sym_layer {
             label = "Symbols";
             bindings = <
-                            &trans        &trans        &trans        &trans        &kp KP_DIVIDE &kp BSLH      &kp PIPE     &kp CARET
-&trans        &trans        &trans        &trans        &trans        &trans        &kp KP_MULTIPLY &kp EXCL      &kp QMARK     &kp AMPS     &kp PERCENT  &trans
-              &trans        &trans        &trans        &trans        &trans        &trans        &trans        &kp DOLLAR    &kp HASH     &kp AT       &kp PLUS
+                            &trans        &trans        &trans        &trans        &kp KP_DIVIDE &kp BSLH      &kp PIPE      &kp CARET
+&trans        &trans        &trans        &trans        &trans        &trans        &kp KP_MULTIPLY &kp EXCL    &kp QMARK     &kp AMPS     &kp PERCENT      &trans
+              &trans        &trans        &trans        &trans        &trans        &trans        &kp DOLLAR    &kp HASH      &kp AT       &kp PLUS
 
                                                         &trans        &trans        &trans        &trans
                                                                       &trans        &trans
