@@ -7,8 +7,8 @@
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <150>;
-            quick-tap-ms = <200>;
-            require-prior-idle-ms = <50>;  // TODO Review for pinky
+            quick-tap-ms = <200>; // Double tapping -> hold key
+            require-prior-idle-ms = <50>;  // Review for pinky
             bindings = <&kp>, <&kp>;
         };
 
@@ -27,6 +27,7 @@
             quick-tap-ms = <200>;
         };
 
+
         // TODO Unused atm, not playing well w/ interruptions (tap-e -> qeu)
         // qu_q: tap_dance_0 {
         //     compatible = "zmk,behavior-tap-dance";
@@ -44,7 +45,7 @@
         //     mods = <(MOD_LSFT|MOD_RSFT)>;
         // };
 
-        // TODO Unused atm, using dedicated key
+        // Unused atm, using dedicated keys
         // sp_bs: sp_bs {
         //     compatible = "zmk,behavior-mod-morph";
         //     label = "SPACE_BACKSPACE";

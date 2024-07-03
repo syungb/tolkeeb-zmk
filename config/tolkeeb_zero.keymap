@@ -10,6 +10,7 @@
 #define SYM_L 3
 #define FN_L 4
 #define FR_L 5
+#define GM_L 6
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt { quick_tap_ms = <180>; };
@@ -21,20 +22,20 @@
         default_layer {
             bindings = <
                             &kp Y         &kp O         &kp F         &kp B         &kp K         &kp Q         &kp L         &kp V
-&kp J         &lt FN_L U    &hm LALT I    &hm LCTRL A   &hm LGUI C    &kp G         &kp M         &hm RGUI T    &hm RCTRL N   &hm LALT S    &lt FR_L R    &kp Z
+&kp STAR      &lt FN_L U    &hm LALT I    &hm LCTRL A   &hm LGUI C    &kp G         &kp M         &hm RGUI T    &hm RCTRL N   &hm LALT S    &lt FR_L R    &kp SLASH
               &kp W         &kp COMMA     &kp PERIOD    &kp P         &kp J         &kp Z         &kp D         &kp H         &kp X         &kp SQT
 
                                                         &sk LSHIFT    &lt NAV_L E   &lt NUM_L SPACE    &lt_bs SYM_L 0
-                                                                        &e_acute    &lt FR_L TAB
+                                                                      &e_acute      &lt FR_L TAB
             >;
         };
 
         nav_layer {
-            label = "Navigation";
+            label = "NAV_Naviation";
             bindings = <
                             &kp GRAVE     &kp UP        &kp PAGE_UP   &kp PAGE_DOWN &kp C_VOL_UP  &kp C_MUTE    &trans        &trans
 &trans        &kp HOME      &kp LEFT      &kp DOWN      &kp RIGHT     &kp END       &kp C_VOL_DN  &trans        &trans        &trans        &kp RIGHT_SHIFT &trans
-              &trans        &trans        &kp LG(C)     &kp LG(V)     &trans        &trans        &kp C_STOP    &kp C_PREV    &kp C_NEXT    &kp C_PP
+              &kp LG(Z)     &kp LG(X)     &kp LG(C)     &kp LG(V)     &trans        &trans        &kp C_STOP    &kp C_PREV    &kp C_NEXT    &kp C_PP
 
                                                         &trans        &trans        &trans        &trans
                                                                       &trans        &trans
@@ -42,10 +43,10 @@
         };
 
         math_layer {
-            label = "Math";
+            label = "NUM_Numbers";
             bindings = <
                             &trans        &trans        &trans        &trans        &kp KP_DIVIDE &kp N7        &kp N8        &kp N9
-&trans        &trans        &trans        &trans        &trans        &trans        &kp KP_MULTIPLY &kp N4      &kp N5        &kp N6        &kp N0        &kp EQUAL
+&trans        &trans        &trans        &trans        &trans        &trans        &kp STAR      &kp N4      &kp N5        &kp N6        &kp N0        &kp EQUAL
               &trans        &trans        &trans        &trans        &trans        &kp PERCENT   &kp N1        &kp N2        &kp N3        &kp PLUS
 
                                                         &trans        &trans        &trans        &trans
@@ -54,7 +55,7 @@
         };
 
         sym_layer {
-            label = "Symbols";
+            label = "SYM_Symbols";
             bindings = <
                             &trans        &trans        &trans        &trans        &kp KP_DIVIDE &kp BSLH      &kp PIPE      &kp CARET
 &trans        &trans        &trans        &trans        &trans        &trans        &kp KP_MULTIPLY &kp EXCL    &kp QMARK     &kp AMPS     &kp PERCENT      &trans
@@ -66,11 +67,11 @@
         };
 
         fn_layer {
-            label = "Fn keys";
+            label = "FN_FnKeys";
             bindings = <
                             &trans        &trans        &trans        &trans        &trans        &kp F7        &kp F8        &kp F9
-&trans        &trans        &trans        &trans        &trans        &trans        &trans        &kp F4        &kp F5        &kp F6        &trans        &trans
-              &trans        &trans        &trans        &trans        &trans        &trans        &trans        &kp F1        &kp F2        &kp F3        &trans
+&trans        &trans        &trans        &trans        &trans        &trans        &trans        &kp F4        &kp F5        &kp F6        &trans        &to GM_L
+              &trans        &trans        &trans        &trans        &trans        &trans        &trans        &kp F1        &kp F2        &kp F3       
 
                                                         &trans        &trans        &trans        &trans
                                                                       &trans        &trans
@@ -78,17 +79,28 @@
         };
 
         french_layer {
-            label = "French";
+            label = "FR_French";
             bindings = <
                             &trans        &o_circ       &trans        &trans        &trans        &trans        &trans        &trans
 &trans        &u_grave      &i_circ       &a_grave      &kp RA(C)     &trans        &trans        &trans        &trans        &trans        &trans        &trans
-              &u_circ       &i_circ       &a_circ       &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans
+              &u_circ       &i_circ       &a_circ       &trans        &trans        &trans        &trans        &trans        &trans        &trans        
 
                                                         &e_circ       &e_grave      &trans        &trans
                                                                       &trans        &trans
             >;
         };
         
+        gaming_layer {
+            label = "GM_Gaming";
+            bindings = <
+                            &kp W         &kp E         &kp R         &kp T         &trans        &trans        &trans        &trans
+&kp CAPS      &kp A         &kp S         &kp D         &kp F         &kp G         &trans        &trans        &trans        &trans        &trans        &to DEF_L
+              &kp Z         &kp X         &kp C         &kp V         &kp B         &trans        &trans        &trans        &trans        &trans        
+
+                                                        &sk LCTRL     &sk LSHFT     &kp TAB       &kp ESCAPE
+                                                                      &kp SPACE     &kp ENTER
+            >;
+        };
     };
 
     combos {
@@ -217,6 +229,20 @@
             key-positions = <26 27>;
             bindings = <&kp RET>;
             layers = <0>;
+        };
+
+        combo_gaming_first {
+            timeout-ms = <40>;
+            key-positions = <20 21>;
+            bindings = <&kp N>;
+            layers = <GM_L>;
+        };
+
+        combo_gaming_second {
+            timeout-ms = <40>;
+            key-positions = <21 22>;
+            bindings = <&kp M>;
+            layers = <GM_L>;
         };
 
         // combo_left_diagonal_up {
