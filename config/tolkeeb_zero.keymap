@@ -94,11 +94,11 @@
             label = "GM_Gaming";
             bindings = <
                             &kp W         &kp E         &kp R         &kp T         &trans        &trans        &trans        &trans
-&kp CAPS      &kp A         &kp S         &kp D         &kp F         &kp G         &trans        &trans        &trans        &trans        &trans        &to DEF_L
+&kp TAB       &kp A         &kp S         &kp D         &kp F         &kp G         &trans        &trans        &trans        &trans        &trans        &to DEF_L
               &kp Z         &kp X         &kp C         &kp V         &kp B         &trans        &trans        &trans        &trans        &trans        
 
-                                                        &sk LCTRL     &sk LSHFT     &kp TAB       &kp ESCAPE
-                                                                      &kp SPACE     &kp ENTER
+                                                        &sk LCTRL     &kp SPACE     &kp TAB       &kp ESCAPE
+                                                                      &sk LSHFT     &kp ENTER
             >;
         };
     };
