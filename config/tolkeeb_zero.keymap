@@ -3,6 +3,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include "includes/behaviors.dtsi" // Home-row mods, ...
 #include "includes/macros.dtsi"    // Accent macros
+#include <dt-bindings/zmk/bt.h>
 
 #define DEF_L 0
 #define NAV_L 1
@@ -69,12 +70,12 @@
         fn_layer {
             label = "FN_FnKeys";
             bindings = <
-                            &trans        &trans        &trans        &trans        &trans        &kp F7        &kp F8        &kp F9
-&trans        &trans        &trans        &trans        &trans        &trans        &trans        &kp F4        &kp F5        &kp F6        &trans        &to GM_L
-              &trans        &trans        &trans        &trans        &trans        &trans        &trans        &kp F1        &kp F2        &kp F3       
+                            &bt BT_CLR    &bt BT_CLR_ALL &trans       &trans        &trans        &kp F7        &kp F8        &kp F9
+&trans        &trans        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &trans        &kp F4        &kp F5        &kp F6        &trans        &to GM_L
+              &trans        &trans        &trans        &trans        &bt BT_SEL 4  &trans        &trans        &kp F1        &kp F2        &kp F3       
 
-                                                        &trans        &trans        &trans        &trans
-                                                                      &trans        &trans
+                                                        &trans        &bt BT_NXT    &trans        &trans
+                                                                      &bt BT_PRV    &trans
             >;
         };
 
